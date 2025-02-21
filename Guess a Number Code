@@ -1,0 +1,29 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+int main()
+{
+    int number = rand() % 100 + 1;
+    int guess;
+    int attempts = 0;
+    cout << "Guess any number between 1 and 100" << endl;
+    cin >> guess;
+    while (number > guess) {
+        cout << "Guess is too low, try again\n";
+        cin >> guess;
+        ++attempts;
+}
+    while (number < guess) {
+        cout << "Guess is too high, try again\n";
+        cin >> guess;
+        ++attempts;
+}
+    if (number == guess) {
+        cout << "Correct\n";
+        ++attempts;
+        cout << "You guessed " << attempts << " times.";
+        return 0;
+    }
+
+}
