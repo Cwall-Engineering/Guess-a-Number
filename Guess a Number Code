@@ -1,10 +1,13 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main()
 {
     // Defining the Variables
-    int number = 18;
+    srand(time(0));
+    int number = rand() % 101;
     int guess;
     int attempts = 0;
 
@@ -17,7 +20,7 @@ int main()
 
     // Displays guess is too low when the guess is too low
         if (number > guess) {
-            
+
             cout << "Guess is too low, try again\n";
             cin >> guess;
             ++attempts;
@@ -25,7 +28,7 @@ int main()
 
     // Displays guess is too high when the guess is too high
         if (number < guess) {
-            
+
             cout << "Guess is too high, try again\n";
             cin >> guess;
             ++attempts;
@@ -33,11 +36,13 @@ int main()
     }
     // Informs user that the guess is correct and displays the number of attempts
         if (number == guess) {
-            
+
             cout << "Correct\n";
             ++attempts;
             cout << "You guessed " << attempts << " times.";
             return 0;
         }
+
+}
 
 }
