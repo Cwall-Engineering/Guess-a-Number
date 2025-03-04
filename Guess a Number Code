@@ -1,6 +1,7 @@
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <limits>
+#include <cmath>
 using namespace std;
 
 int main()
@@ -8,34 +9,44 @@ int main()
     // Defining the Variables
     srand(time(0));
     int number = rand() % 101;
-    int guess;
+    double guess;
     int attempts = 0;
 
     // Displaying the prompt and allowing input
     cout << "Guess any number between 1 and 100" << endl;
     cin >> guess;
-
+    cout << "Your guess was " << round(guess) << endl;
     // Creates the loop that continues when the guess is incorrect
-    while (number != guess) {
+    while (number != round(guess)) {
+
+    //If the user inputs a character or string the program will inform the user that they can only enter integers
+      if (cin.fail()) {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "Please enter only integers, your guess does not count.\n";
+            cin >> guess;
+        }
 
     // Displays guess is too low when the guess is too low
-        if (number > guess) {
+        if (number > round(guess)) {
 
             cout << "Guess is too low, try again\n";
             cin >> guess;
+            cout << "Your guess was " << round(guess) << endl;
             ++attempts;
         }
 
     // Displays guess is too high when the guess is too high
-        if (number < guess) {
+        if (number < round(guess)) {
 
             cout << "Guess is too high, try again\n";
             cin >> guess;
+            cout << "Your guess was " << round(guess) << endl;
             ++attempts;
         }
     }
     // Informs user that the guess is correct and displays the number of attempts
-        if (number == guess) {
+        if (number == round(guess)) {
 
             cout << "Correct\n";
             ++attempts;
@@ -45,4 +56,3 @@ int main()
 
 }
 
-}
