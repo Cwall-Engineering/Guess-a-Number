@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <limits>
@@ -15,7 +16,6 @@ int main()
     // Displaying the prompt and allowing input
     cout << "Guess any number between 1 and 100" << endl;
     cin >> guess;
-    cout << "Your guess was " << round(guess) << endl;
     // Creates the loop that continues when the guess is incorrect
     while (number != round(guess)) {
 
@@ -28,7 +28,7 @@ int main()
         }
 
     // Displays guess is too low when the guess is too low
-        if (number > round(guess)) {
+        else if (number > round(guess)) {
 
             cout << "Guess is too low, try again\n";
             cin >> guess;
@@ -37,7 +37,7 @@ int main()
         }
 
     // Displays guess is too high when the guess is too high
-        if (number < round(guess)) {
+        else if (number < round(guess)) {
 
             cout << "Guess is too high, try again\n";
             cin >> guess;
@@ -55,4 +55,3 @@ int main()
         }
 
 }
-
